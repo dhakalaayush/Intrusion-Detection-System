@@ -1,0 +1,6 @@
+Feb 20 16:05:02 server-01 sshd[1235]: Invalid user root from 185.156.177.199 port 45224
+Feb 20 16:05:02 server-01 sshd[1235]: Invalid user root from 185.156.177.199 port 45224
+Feb 20 16:05:02 server-01 sshd[1235]: Invalid user root from 185.156.177.199 port 45224
+Feb 20 16:05:02 server-01 sshd[1235]: Invalid user root from 185.156.177.199 port 45224
+Feb 20 16:05:02 server-01 sshd[1235]: Invalid user root from 185.156.177.199 port 45224
+Feb 20 16:05:02 server-01 sshd[1235]: Accepted password root from 185.156.177.199 port 45224
