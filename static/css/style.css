@@ -1,0 +1,41 @@
+body{
+    background-color: rgb(33, 32, 32);
+    padding: 40px;
+}
+
+
+/*pie chart*/
+.chart_container{
+    height: 400px;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#clock{
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+h2{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logs{
+    background: rgb(72, 70, 70);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5;
+}
