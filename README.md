@@ -18,7 +18,5 @@ Intrusion Detection Systems are often costly to be implemented by small organiza
 - Python
 - Flask - python framework for web
 - HTML, CSS and JavaScript
-
 ![Block Diagram](Images/block_diagram_1.png)
-
 ![Block Diagram](Images/block_diagram_2.png)
