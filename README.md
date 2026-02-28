@@ -9,6 +9,8 @@ Intrusion Detection Systems are often costly to be implemented by small organiza
 - The dashboard presents the alerts.
 - Logs, chart of intrusions and the IP addresses that made requests can also be viewed in the dashboard.
 
+![Dashboard](Images/dashboard.png)
+
 # Limitation
 - Only the Linux logs can be viewed so this system has to be implemented in a Linux machine.
 
@@ -16,3 +18,7 @@ Intrusion Detection Systems are often costly to be implemented by small organiza
 - Python
 - Flask - python framework for web
 - HTML, CSS and JavaScript
+
+![Block Diagram](Images/block_diagram_1.png)
+
+![Block Diagram](Images/block_diagram_2.png)
