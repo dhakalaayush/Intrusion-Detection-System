@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Intrusion Detection System</title>
+        <link rel = "stylesheet" href = "{{ url_for ('static',filename='css/style.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--this is used to create pie chart-->
+        <meta http-equiv="refresh" content="60">
+    </head>
+
+    <body>
+        <h1>Intrusion Detection System</h1>
+
+        <p id = "clock"></p>
+
+        <div class = "container">
+         
+        <div>
+        <h2>Alerts</h2>    
+        <p class = "logs" id = "alerts">
+            {% for line in alerts %}
+            {{ line }}
+            <br>
+            {% endfor %}
+        </p>
+        </div>
+
+        <div class = "chart_container">
+        <canvas id="chart"></canvas>
+        </div>
+
+        </div>
+
+        <h2>Logs</h2>
+        <p class = "logs" id = "logs">
+            {% for line in logs %}
+            {{ line }}
+            <br>
+            {% endfor %}
+        </p>
+
+
+        <h2>IP addresses that made requests</h2>
+        <p class = "logs" id = "ips">
+            {% for line in list %}
+            {{ line }}
+            <br>
+            {% endfor %}
+        </p>
+
+
+        <script>
+            //time
+            function updateClock() 
+            {
+                const now = new Date();
+                document.getElementById('clock').innerText = now.toLocaleString();
+            }   
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            //pie chart
+            let sql_attacks = {{ sql_attacks }};
+            let malwares = {{ malwares }};
+            let brute_force_attacks = {{ brute_force_attacks }};
+
+            const ctx = document.getElementById('chart');
+
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['SQL Injection','Suspicious activity','Brute Force'],
+                    datasets: [{
+                        data: [sql_attacks,malwares,brute_force_attacks]
+                    }]
+                }
+            });
+
+            //refresh chart
+            function updateChart() {
+                fetch('/data')
+                    .then(response => response.json())
+                    .then(data => {
+                        pieChart.data.datasets[0].data = [
+                            data.sql_attacks,
+                            data.malwares,
+                            data.brute_force_attacks
+                        ];
+                        pieChart.update();
+                    });
+            }
+
+            //refresh page
+            function updateData(){
+
+                fetch("/data")
+                .then(response => response.json())
+                .then(data => {
+
+                    document.getElementById("alerts").innerHTML =
+                        data.alerts.join("<br>");
+
+                    document.getElementById("logs").innerHTML =
+                        data.logs.join("<br>");
+
+                    document.getElementById("ips").innerHTML =
+                        data.ips.join("<br>");
+
+                });
+            }
+
+            setInterval(updateData, 2000);
+
+
+        </script>
+    </body>
+
+</html>
